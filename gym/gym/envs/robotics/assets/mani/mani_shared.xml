@@ -1,0 +1,43 @@
+<mujoco>
+	<asset>
+		<texture type="skybox" builtin="gradient" rgb1="0.44 0.85 0.56" rgb2="0.46 0.87 0.58" width="32" height="32"></texture>
+
+		<material name="floor_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"></material>
+		<material name="table_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.93 0.93 0.93 1"></material>
+		<material name="block_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"></material>
+		<material name="puck_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"></material>
+		<material name="robot0:link_mat" shininess="0.03" specular="0.4"></material>
+        <material name="robot0:geomMat" shininess="0.03" specular="0.4"></material>
+
+
+		<mesh file="/home/wooseok/anaconda3/lib/python3.5/site-packages/gym-0.10.8-py3.5.egg/gym/envs/robotics/assets/stls/mani/Part_00.STL" name="robot0:link0" scale="0.01 0.01 0.01"></mesh>
+		<mesh file="/home/wooseok/anaconda3/lib/python3.5/site-packages/gym-0.10.8-py3.5.egg/gym/envs/robotics/assets/stls/mani/Part_01.STL" name="robot0:link1" scale="0.01 0.01 0.01"></mesh>
+		<mesh file="/home/wooseok/anaconda3/lib/python3.5/site-packages/gym-0.10.8-py3.5.egg/gym/envs/robotics/assets/stls/mani/Part_02.STL" name="robot0:link2" scale="0.01 0.01 0.01"></mesh>
+		<mesh file="/home/wooseok/anaconda3/lib/python3.5/site-packages/gym-0.10.8-py3.5.egg/gym/envs/robotics/assets/stls/mani/Part_03.STL" name="robot0:link3" scale="0.01 0.01 0.01"></mesh>
+		<mesh file="/home/wooseok/anaconda3/lib/python3.5/site-packages/gym-0.10.8-py3.5.egg/gym/envs/robotics/assets/stls/mani/Part_04.STL" name="robot0:link4" scale="0.01 0.01 0.01"></mesh>
+		<mesh file="/home/wooseok/anaconda3/lib/python3.5/site-packages/gym-0.10.8-py3.5.egg/gym/envs/robotics/assets/stls/mani/Part_05.STL" name="robot0:link5" scale="0.01 0.01 0.01"></mesh>
+		<mesh file="/home/wooseok/anaconda3/lib/python3.5/site-packages/gym-0.10.8-py3.5.egg/gym/envs/robotics/assets/stls/mani/Part_06.STL" name="robot0:link6" scale="0.01 0.01 0.01"></mesh>
+		<mesh file="/home/wooseok/anaconda3/lib/python3.5/site-packages/gym-0.10.8-py3.5.egg/gym/envs/robotics/assets/stls/mani/Gripper_base.STL" name="robot0:Gripper_base" scale="0.01 0.01 0.01"></mesh>
+		<mesh file="/home/wooseok/anaconda3/lib/python3.5/site-packages/gym-0.10.8-py3.5.egg/gym/envs/robotics/assets/stls/mani/Gripper_grip.STL" name="robot0:Gripper_grip" scale="0.01 0.01 0.01"></mesh>
+
+	</asset>
+
+    <equality>
+		<joint name="gripper" active="true" joint1="robot0:r_gripper_finger_joint" joint2="robot0:l_gripper_finger_joint" polycoef="0 -1 0 0 0"/>
+		<weld body1="robot0:mocap" body2="robot0:end_effector" solimp="0.9 0.95 0.001" solref="0.02 1"></weld>
+	</equality>
+
+	<default>
+		<default class="robot0:mani">
+			<geom margin="0.001" material="robot0:geomMat" rgba="1 1 1 1" solimp="0.99 0.99 0.01" solref="0.01 1" type="mesh" user="0"></geom>
+			<joint armature="1" damping="500" frictionloss="0" stiffness="0"></joint>
+
+			<default class="robot0:grey">
+				<geom rgba="0.356 0.361 0.376 1.0"></geom>
+			</default>
+			<default class="robot0:blue">
+				<geom rgba="0.086 0.506 0.767 1.0"></geom>
+			</default>
+		</default>
+	</default>
+</mujoco>
